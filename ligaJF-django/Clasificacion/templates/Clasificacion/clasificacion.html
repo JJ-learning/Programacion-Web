@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{%block clasificacion%}
+		<div class="container">
+			<section class="row1"> 
+				<div class="table-responsive">
+				  <table class="table table-condensed"> 
+			  		 <tr>
+			  		 	<th>Jugadores</th>
+			  		 	<th>Puntos</th>					    
+					    <th>Posicion</th> 
+					    <th>Equipo</th>
+					    <th>Valor</th>
+					    <th>Goles</th>
+					  </tr>
+				  	{%for jugador in lista_jugadores%}
+						  <tr>
+						    <td style="padding:2px">{{jugador.nombre_jugador}}</td>
+						    <td style="padding:2px">{{jugador.puntos_jugador}}</td>
+						    <td style="padding:2px">{{jugador.posicion}}</td>
+						    <td style="padding:2px">{{jugador.equipo_jugador.nombre_equipo}}</td>
+						    <td style="padding:2px">{{jugador.valor_jugador}}</td>
+						    <td style="padding:2px">{{jugador.goles_jugador}}</td>
+						  </tr>
+					{% endfor %}
+				  </table>
+				</div>		
+			</section>
+		</div>
+{%endblock%}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}
+
+

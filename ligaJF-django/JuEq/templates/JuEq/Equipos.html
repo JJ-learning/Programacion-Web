@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block Equipos_especifico %}
+	<div class="container">
+		<section class="row1"> 
+			<div class="col-md-6">
+
+					<h1> {{ equipo.nombre_equipo }}</h1>
+					
+					<article><strong>Entrenador:</strong> {{equipo.entrenador_equipo}}<br><strong>Ciudad:</strong>  {{equipo.ciudad_equipo}}
+					</article>
+			</div>
+			<div class="col-md-4">
+				<h1>Plantilla</h1>
+				{%for i in datosJugador%}
+				<li class ="list-group-item"><a href="{% url 'JuEq:jugador' i.id %}"style="color:grey">{{ i.nombre_jugador }}</a></li>
+				{%endfor%}			
+			</div>
+
+			</div>			
+		</section>
+	</div>
+{%endblock%}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}
+

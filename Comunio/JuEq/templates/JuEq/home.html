@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{%block jumbotron%}
+	<div class="jumbotron">
+	  <h1>Bienvenido al Comunio UCO</h1>
+	  <p>Es una aplicacion web que permite la creacion de un equipo de ensueño</p>
+	  <p><a class="btn btn-default btn-sm" href="/login" role="button">Ya tengo usuario</a></p>
+	   <p><a class="btn btn-default btn-sm" href="/newUser" role="button">!Quiero empezar¡</a></p>
+	</div>
+{%endblock%}
+
+{%block jumbotron2%}
+	<div class="jumbotron">
+	  <h1>Bienvenido, {{user.username}}, al Comunio UCO</h1>
+		<div class="btn-group-vertical" role="group" aria-label="...">
+			<button type="button" class="btn btn-default" style= "margin-bottom:5px"><a href="{% url 'JuEq:nequipo' %}" style="color:black">Crear nuevo Equipo</a></button>
+				
+			<button type="button" class="btn btn-default"><a href="{% url 'JuEq:nuevo' %}"style="color:black">Crear nuevo Jugador</a></button>
+		</div>
+	</div>
+{%endblock%}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}
+
+

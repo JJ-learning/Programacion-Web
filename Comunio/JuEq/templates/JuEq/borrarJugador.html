@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{%block borrarJugadores%}
+	<div class="container">
+		<section class="row1"> 
+			<div class="col-md-8">
+				{% for jugador in lista_jugador %}
+				<div class ="col-md-4" style="padding:0px">
+					<li class="list-group-item"><a href="{% url 'JuEq:jugador' jugador.id %}" style="color:grey">{{ jugador.nombre_jugador }}</a></li>
+				</div>
+				{% endfor %}		
+			</div>
+			<div class = "col-md-4 ">
+				<button type="button" class="btn btn-default btn-lg btn-block"><a href="{% url 'JuEq:nuevo' %}" style="color:grey">Crear nuevo Jugador</a></button>
+			</div>
+		</section>
+	</div>
+{%endblock%}
+
+{% block footer%}
+<p>© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.</p>
+{% endblock %}
+

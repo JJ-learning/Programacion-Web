@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block Jugador_especifico %}
+	<div class="container">
+		<section class="row1"> 
+			<div class="col-md-6">
+				<h1> {{ jugador.nombre_jugador }}</h1>
+
+				<article><strong>Ciudad:</strong>{{ jugador.ciudad_natal }}<br>
+					<strong>Edad Jugador</strong> {{ jugador.edad_jugador }}<br><strong>Fecha de nacimiento:</strong> {{ jugador.fecha_nacimiento }} <br> <strong>Posicion:</strong> {{jugador.posicion}} <br> <strong>Equipo:</strong>{{jugador.equipo_jugador}}<br>
+				</article>
+			</div>		
+			<div class="col-md-4">
+				<h1> Historial: </h1>
+				<article>
+					<strong>Puntos: </strong>{{jugador.puntos_jugador}}<br><strong>Valor: </strong>{{jugador.valor_jugador}}<br><strong>Goles: </strong>{{jugador.goles_jugador}}
+				</article>
+			</div>
+			{%if user.is_authenticated%}
+			<div class="col-md-2">
+				<button type="button" class="btn btn-default btn-lg btn-block"><a href="{% url 'JuEq:borrarJ' jugador.id %}" style="color:grey">Borrar Jugador</a></button>
+			</div>	
+			{%endif%}
+		</section>
+	</div>
+{% endblock %}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block editarE %}
+	{%if user.is_authenticated %}
+		<div class="container">
+			<section class="row1"> 
+				<div class="col-md-6">
+					<form action="" method="post">{% csrf_token %}
+						{{form.as_p}}
+						<input type="submit" value="Guardar">
+					</form>
+				</div>			
+			</section>
+		</div>
+	{% else %}
+		<p> Usted necesita estar registrado, por favor, pinche <a href="/login">aqui</a></p>
+	{%endif%}
+{%endblock%}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}

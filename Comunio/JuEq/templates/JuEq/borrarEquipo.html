@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+{% block Equipos_especifico %}
+	{%if user.is_authenticated %}
+		<div class="container">
+			<section class="row1"> 
+				<div class="col-md-6">
+
+						<h1> {{ equipo.nombre_equipo }}</h1>
+						<a href="#" style="color:grey">Modificar Equipo</a>
+						<article><strong>Entrenador:</strong> {{equipo.entrenador_equipo}}<br><strong>Año de Creación:</strong> {{equipo.anio_creacion}}<br><strong>Historia:</strong> {{equipo.historia_equipo}} <br><strong>Ciudad:</strong>  {{equipo.ciudad_equipo}}
+						</article>
+				</div>
+				<div class="col-md-4">
+					<h1>Plantilla</h1>
+					{%for i in datosJugador%}
+					<li class ="list-group-item"><a href="{%url 'JuEq:jugador' i.id %}"style="color:grey">{{ i.nombre_jugador }}</a></li>
+					{%endfor%}			
+				</div>
+				<div class="col-md-2">
+						<button type="button" class="btn btn-default btn-lg btn-block"><a href="{% url 'JuEq:borrarE' equipo.id %}" style="color:grey">Borrar Equipo</a></button>
+				</div>			
+			</section>
+		</div>
+	{% else %}
+		<p> Usted necesita estar registrado, por favor, pinche <a href="/login">aqui</a></p>
+	{%endif%}
+{%endblock%}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}
+

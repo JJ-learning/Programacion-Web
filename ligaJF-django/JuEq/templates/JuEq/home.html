@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{%block jumbotron%}
+	<div class="jumbotron">
+	  <h1 class="text-center">Bienvenido a la Liga de Jugadores Fantásticos</h1>
+	  <p class="text-center" style="margin-bottom: 20px">Aplicación para gestionar los jugadores de los equipos profesionales de la liga española.</p>
+	  <div class="col-md-6 col-xs-12">
+	  		  <p style="width:500px;float:right"><button type="button" class="btn btn-default btn-lg btn-block"><a href="/login" style="color:grey">Iniciar Sesión</a></button></p>
+	  	</div>
+	  	<div class="col-md-6 ">
+	  		  <p style="width:500px;float:left"><button type="button" class="btn btn-default btn-lg btn-block"><a href="/newUser" style="color:grey">¡Registrate!</a></button></p>
+	  	 </div>
+	  	 <p class="text-center"><small><em>Se aconseja leer el manual antes de jugar. Pincha <a href="/instrucciones" style="color:white">aqui</a> para saber más.</em></small></p>
+	</div>
+{%endblock%}
+
+{%block jumbotron2%}
+	<div class="jumbotron">
+	  <h1 class="text-center">Bienvenido a la Liga de Jugadores Fantásticos, {{user.username}}</h1>
+	  <div class="text-center">
+	  	<h3><em>¿Qué quieres hacer?</em></h3>
+	  	<div class="btn-group-vertical" >
+	  		<button type="button" class="btn btn-default btn-lg" style="margin-bottom:5px"><a class="text-center" href="/instrucciones" style="color:grey">Ver Manual</a></button>
+	  		<button type="button" class="btn btn-default btn-lg" style="margin-bottom:5px"><a class="text-center" href="/jugadores" style="color:grey">Ver Jugadores</a></button>
+	  		<button type="button" class="btn btn-default btn-lg" style="margin-bottom:5px"><a class="text-center" href="/clasificacion" style="color:grey">Ver Clasificacion</a></button>
+	  		<button type="button" class="btn btn-default btn-lg" style="margin-bottom:5px"><a class="text-center" href="/clasificacion/partido" style="color:grey">Crear Partido</a></button>
+	  		<button type="button" class="btn btn-default btn-lg" style="margin-bottom:5px"><a class="text-center" href="/clasificacion/resultado" style="color:grey">Ver Resultados</a></button>	
+			<button type="button" class="btn btn-default btn-lg" style="margin-bottom:5px"><a class="text-center" href="/mercado" style="color:grey">Ver Mercado</a></button>			
+		</div>
+	  </div>
+
+	</div>
+{%endblock%}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}
+
+

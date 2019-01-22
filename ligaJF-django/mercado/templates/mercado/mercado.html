@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block mercado %}
+{%if user.is_authenticated %}
+	<div class="container">
+		<section class="row1"> 
+			<div class="col-md-6">
+				{%for mercado in lista_mercado%}
+				<div class="col-md-3">
+					<h3>{{mercado.jugador.nombre_jugador}}</h3>
+					<h5>Valor Inicial:<em>{{mercado.jugador.valor_jugador}}</em></h5>
+					<h5>Apuesta:<em>{{mercado.valor_apuesta}}</em></h5>
+				</div>
+				{%endfor%}
+			</div>		
+			<div class="col-md-4">
+				<button type="button" class="btn btn-default btn-lg btn-block"><a href="{% url 'mercado:comprar' %}" style="color:grey">Comprar jugador aleatorio</a></button>
+			</div>
+
+		</section>
+	</div>
+{% else %}
+	<p> Usted necesita estar registrado, por favor, pinche <a href="/login">aqui</a></p>
+{%endif%}
+{% endblock %}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}

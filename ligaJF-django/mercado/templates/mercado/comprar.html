@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block mercado %}
+{%if user.is_authenticated %}
+	<div class="container">
+		<section class="row1"> 
+			<div class="col-md-6">
+				<h1>Has comprado a:</h1>
+				<h3>{{jugador2.nombre_jugador}}</h3>
+				<h4>Se va al equipo: <em>{{jugador2.equipo_jugador}}</em></h4>
+				<h4>Por un valor de: <em>{{jugador2.valor_jugador}}</em></h4>
+			</div>		
+			<div class="col-md-6">
+
+			</div>
+
+		</section>
+	</div>
+{% else %}
+	<p> Usted necesita estar registrado, por favor, pinche <a href="/login">aqui</a></p>
+{%endif%}
+{% endblock %}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}

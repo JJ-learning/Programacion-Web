@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{%block clasificacion%}
+		<div class="container">
+			<section class="row1"> 
+				<div class="table-responsive">
+				  <table class="table table-condensed"> 
+			  		 <tr>
+					    <th>Equipos</th>
+					    <th>Partidos</th> 
+					    <th>Victorias</th>
+					    <th>Empates</th>
+					    <th>Derrotas</th>
+					    <th>GF</th>
+					    <th>GC</th>
+					  </tr>
+				  	{%for equipo in lista_equipos%}
+						  <tr>
+						    <td style="padding:2px">{{equipo.nombre_equipo}}</td>
+						    <td style="padding:2px">{{equipo.partidos_jugados}}</td>
+						    <td style="padding:2px">{{equipo.victorias}}</td>
+						    <td style="padding:2px">{{equipo.empates}}</td>
+						    <td style="padding:2px">{{equipo.derrotas}}</td>
+						    <td style="padding:2px">{{equipo.goles_favor}}</td>
+						    <td style="padding:2px">{{equipo.goles_contra}}</td>
+						  </tr>
+					{% endfor %}
+				  </table>
+				</div>		
+			</section>
+		</div>
+{%endblock%}
+
+{% block footer%}
+© 2016 <a href="http://www.uco.es">UCO</a> | Design by Juan Jose Mendez Torrero.
+{% endblock %}
+
+
