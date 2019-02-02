@@ -1,0 +1,51 @@
+{% extends 'shortcut/base.html' %}
+{% block title %}Descubre - ShortCut{% endblock title %}
+{% block menu_log %}
+	<li><a href="/">Inicio</a></li>
+	<li><a href="/user/{{ user_log.username }}">Perfil</a></li>
+	<li><a href="{% url 'shortcut.views.interactions' %}">Interacciones</a></li>
+	<li class="current_page_item" ><a href="{%url 'shortcut.views.users' %}">Descubre</a></li>
+	<li><a href="{% url 'shortcut.views.logout_view' %}">Logout</a></li>
+{% endblock menu_log %}
+{% block derecha %}
+	<h1>Create a ShortCut</h1>
+	<p>
+		<form action="/submit" method="post">{% csrf_token %}
+		{% for field in sc_form %}
+		{{ field }}
+		{% endfor %}
+		<input type="hidden" value="{{ next_url }}" name="next_url">
+		<input type="submit" value="ShortCut!">
+		</form>
+	</p>
+{% endblock derecha %}
+{% block content %}
+	<h1>Public Profiles</h1>
+	<div class="tope">
+	{% for user, shortcut in obj %}
+	<div class="shortcutWrapper">
+		<a href="/user/{{user.username}}">
+			{% if user.profile.avatar %}
+				<img class="avatar" src="{{MEDIA_URL}}{{ user.profile.avatar }}">
+			{% else %}
+				<img src="{{STATIC_URL}}images/default.png">
+			{% endif %}
+		</a>
+		<a class="shortcutName" href="/user/{{ shortcut.user.username }}"></a>
+		<a href="/user/{{ user.username }}">
+			<strong>@{{ user.username }}</strong>
+		</a>
+		{% if user.profile.bio %}
+			<p> {{ user.profile.bio }} </p>
+		{% else %}
+			<p> {{ shortcut.content }}</p>
+		{% endif %}
+		<p> 
+			{{ user.shortcut_count }} ShortCuts
+			{{ user.profile.follows.count }} Following
+			{{ user.profile.followed_by.count }} Followers
+		</p>
+	</div>
+	{% endfor %}
+	</div>
+{% endblock content %}

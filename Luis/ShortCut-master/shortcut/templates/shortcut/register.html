@@ -1,0 +1,13 @@
+{% extends 'shortcut/base.html' %}
+
+{% block title %} Registro de Usuario {% endblock title %}
+
+{% block login %}
+
+<h2><strong>Datos de Usuario</strong></h2>
+<form action='' method='POST'>{% csrf_token %}
+	{{ form.as_ul }}
+	<p><input type='submit' value='Registrarse'></p>
+</form>
+<p>¿Ya estás registrado? <a href="/login" > Inicia sesión aquí.</a></p>
+{% endblock login %}

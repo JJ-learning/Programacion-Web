@@ -1,0 +1,70 @@
+{% extends 'shortcut/base.html' %}
+{% block title %}Búsqueda - ShortCut{% endblock title %}
+{% block izquierda %}
+<h2>Resultados en Users</h2>
+	{% if users %}
+		{% for user in users %}
+			<a href="/user/{{user.username}}">
+			{% if shortcut.user.profile.avatar %}
+				<img class="avatar" src="{{MEDIA_URL}}{{ user.profile.avatar }}">
+			{% else %}
+				<img src="{{STATIC_URL}}images/default.png">
+			{% endif %}
+			</a>
+			<a class="profileName" href="/user/{{ user.username }}">
+				{{ user.first_name}}
+			</a>
+			<a href="/user/{{ user.username }}">
+				@{{ user.username }}
+			</a>
+			<p>{{ user.profile.bio }}</p>
+			<p> 
+				{{ user.shortcut_count }} ShortCuts <br>
+				{{ user.profile.follows.count }} Following <br>
+				{{ user.profile.followed_by.count }} Followers <br>
+			</p>
+
+		{% endfor %}
+	{% else %}
+		<p>No hay usuarios que coincidan con la búsqueda.</p>
+	{% endif %}
+{%  endblock izquierda %}
+{% block derecha%}
+	<h1>Create a ShortCut</h1>
+	<p>
+		<form action="/submit" method="post">{% csrf_token %}
+		{% for field in sc_form %}
+		{{ field }}
+		{% endfor %}
+		<input type="hidden" value="{{ next_url }}" name="next_url">
+		<input type="submit" value="ShortCut!">
+		</form>
+	</p>
+{% endblock derecha %}
+{% block content %}
+	{% if shortcuts %}
+	<div class="tope">
+		{% for shortcut in shortcuts %}
+		<div class="shortcutWrapper">
+			<a href="/user/{{shortcut.user.username}}">
+				{% if shortcut.user.profile.avatar %}
+					<img class="avatar" src="{{MEDIA_URL}}{{ shortcut.user.profile.avatar }}">
+				{% else %}
+					<img src="{{STATIC_URL}}images/default.png">
+				{% endif %}
+			</a>
+			<a class="shortcutName" href="/user/{{ shortcut.user.username }}">
+				{{ shortcut.user.first_name }}
+			</a>
+			<a href="/user/{{ shortcut.user.username }}">
+				<strong>@{{ shortcut.user.username }}</strong>
+			</a>
+			{{ shortcut.creation_date|timesince }}
+			<p> {{ shortcut.content }}</p>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+		<p>No hay shortcuts que coincidan con la búsqueda.</p>
+	{% endif %}
+{% endblock content %}

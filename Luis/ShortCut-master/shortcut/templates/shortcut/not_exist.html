@@ -1,0 +1,10 @@
+{% extends 'shortcut/base.html' %}
+
+{% block title %}Error Login{% endblock title %}
+
+{% block login %}
+
+<h2><strong>Has introducido mal el usuario o la contraseña.</strong></h2>
+<p>Prueba otra vez <a href="/login">aquí</a>.</p>
+<p>¿No estás registrado? <a href="/user/new" > Regístrate aquí.</a></p>
+{% endblock login %}

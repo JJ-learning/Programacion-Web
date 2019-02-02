@@ -1,0 +1,9 @@
+{%extends "base.html"%}
+{%block tviajes%}
+	<h1>Viajes</h1>
+	{%for viaje in lista_viajes%}
+		<p>Destino: <a href="{%url 'viajes:viaje' viaje.id%}">{{viaje.destino.pais}}</a></p>
+	{%endfor%}
+	<a href="/newV">Crear viaje</a>
+	<a href="/">Home</a>
+{%endblock%}

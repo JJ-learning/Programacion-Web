@@ -1,0 +1,36 @@
+{% extends 'shortcut/base.html' %}
+{% block title %}Interacciones - ShortCut{% endblock title %}
+{% block menu_log %}
+	<li><a href="/">Inicio</a></li>
+	<li><a href="/user/{{ user_log.username }}">Perfil</a></li>
+	<li class="current_page_item" ><a href="{% url 'shortcut.views.interactions' %}">Interacciones</a></li>
+	<li><a href="{% url 'shortcut.views.users' %}">Descubre</a></li>
+	<li><a href="{% url 'shortcut.views.logout_view' %}">Logout</a></li>
+{% endblock menu_log %}
+{%  block content %}
+	{% if shortcuts %}
+	<div class="tope">
+		{% for shortcut in shortcuts %}
+		<div class="shortcutWrapper">
+			<a href="/user/{{shortcut.user.username}}">
+				{% if shortcut.user.profile.avatar %}
+					<img class="avatar" src="{{MEDIA_URL}}{{ shortcut.user.profile.avatar }}">
+				{% else %}
+					<img src="{{STATIC_URL}}images/default.png">
+				{% endif %}
+			</a>
+			<a class="shortcutName" href="/user/{{ shortcut.user.username }}">
+				{{ shortcut.user.first_name }}
+			</a>
+			<a href="/user/{{ shortcut.user.username }}">
+				<strong>@{{ shortcut.user.username }}</strong>
+			</a>
+			{{ shortcut.creation_date|timesince }}
+			<p> {{ shortcut.content }} </p>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+		<p>No tienes interacciones. ¡<a href="{% url 'shortcut.views.users' %}">Sigue</a> a otros usuarios para que te conozcan y te nombren!</p>
+	{% endif %}
+{% endblock content %}

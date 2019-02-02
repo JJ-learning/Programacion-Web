@@ -1,0 +1,12 @@
+{%extends "base.html"%}
+
+{%block viaje%}
+	<p>Destino: {{viaje.destino.pais}}</p>
+	<p>Días: {{viaje.dias_viaje}}</p>
+	<p>Coste: {{viaje.coste_viaje}}</p>
+	<p>Modo de transporte: {{viaje.modo}}</p>
+	{%if user.is_authenticated %}
+	<p><a href="{%url 'viajes:editarV' viaje.id%}">Editar Viaje</a></p>
+	{%endif%}
+	<a href="/">Home</a>
+{%endblock%}

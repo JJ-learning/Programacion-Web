@@ -1,0 +1,15 @@
+{%extends "base.html" %}
+{%block destinos%}
+
+	<h1>Destinos</h1>
+	{%for destino in lista_destinos%}
+	<h2><a href="{%url 'viajes:destino' destino.id%}">{{destino.pais}}</a></h2>
+	{%endfor%}
+	<a href="/newD">Crear nuevo destino</a>
+	<a href="/viajes">Ver viajes</a>
+	<a href="/rutas">Ver rutas</a>
+	{%if user.is_authenticated%}
+	<a href="/logout">Salir</a>
+	{%endif%}
+
+{%endblock%}

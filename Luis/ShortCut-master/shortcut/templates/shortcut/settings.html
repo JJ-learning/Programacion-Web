@@ -1,0 +1,16 @@
+{% extends 'shortcut/user.html' %}
+{% block title %}Configuración de usuario - ShortCut{% endblock %}
+{% block content %}
+	<form action="" enctype='multipart/form-data' method="post">{% csrf_token %}
+		<ul>
+		{% for field in form %}
+			{{ field }} <br>
+		{% endfor %}
+		{% for field in form_p %}
+			{{ field }}<br>
+		{% endfor %}
+		</ul>
+		<input type="submit" id="btnLogIn" value="Cambiar perfil">
+	</form>
+{% endblock content %}
+	

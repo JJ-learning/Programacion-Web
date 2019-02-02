@@ -1,0 +1,83 @@
+<html >
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block title %}ShortCut{% endblock title %}</title>
+<link href="{{ STATIC_URL }}css/default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<h1>
+			<a href="/"><img src="{{STATIC_URL}}images/ShortCut.png"></a>
+		</h1>
+	</div>
+	<div id="navigation">
+		<ul>
+			{% if user.is_authenticated %}
+				{% block menu_log %}
+				<li class="current_page_item"><a href="/">Inicio</a></li>
+				<li><a href="/user/{{ user_log.username }}">Perfil</a></li>
+				<li><a href="{% url 'shortcut.views.interactions' %}">Interacciones</a></li>
+				<li><a href="{%url 'shortcut.views.users' %}">Descubre</a></li>
+				<li><a href="{% url 'shortcut.views.logout_view' %}">Logout</a></li>
+				{% endblock menu_log %}
+				
+			{% else %}
+				{% block menu_nolog %}
+				<li><a href="{% url 'shortcut.views.login_view' %}">Login</a></li>
+				<li class="last"><a href="{% url 'shortcut.views.newUser' %}">Registrarse</a></li>
+				{% endblock menu_nolog %}
+			{% endif %}
+		</ul>
+	</div>
+	<div id="content-container">
+		<div id="section-navigation">
+			{% block izquierda %}
+			{% if user.is_authenticated %}
+				<a href="/user/{{user_log.username}}">
+				{% if user_log.profile.avatar %}
+					<img class="avatar" src="{{MEDIA_URL}}{{ user_log.profile.avatar }}">
+				{% else %}
+					<img src="{{STATIC_URL}}images/default.png">
+				{% endif %}
+				</a>
+				<p><a class="profileName" href="/user/{{ user.username }}">{{ user_log.first_name }}</a></p>
+				<h3 id="username"> <a href="/user/{{user_log.username }}"> @{{ user_log.username }} </a></h3>
+				{{ user_log.profile.bio }}
+			{% endif %}
+			{% endblock izquierda %}
+		</div>
+		<div id="content">
+			{% block login %}
+			{% endblock login %}
+			{% block content %}
+			{% endblock content %}
+		</div>
+		<div id="aside">
+		{% if user.is_authenticated %}
+		<div id="sidebar">
+			<li id="search">
+				<form method="get" action="/search">
+					<input type="text" id="s" name="busqueda" value="{{ busqueda }}" placeholder="Búsqueda">
+				</form>
+			</li>
+
+		</div>
+		{% endif %}
+			<h3>
+				{% block derecha %}
+				{% endblock derecha %}
+			</h3>
+		</div>
+		<div id="footer">
+			© 2015 <a href="http://www.uco.es">UCO</a> | Design by Luis Flores Méndez.
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+
+
+
+

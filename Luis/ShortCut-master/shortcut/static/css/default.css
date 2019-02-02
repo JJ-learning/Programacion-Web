@@ -1,0 +1,218 @@
+body{
+	background: white;
+	margin-top: 15px;
+	font-family: "Trebuchet MS", sans-serif, Arial;
+}
+#container
+{
+	margin: 0 auto;
+	width: 1000px;
+	background: #fff;
+}
+
+#header
+{
+	border-bottom: 5px solid red;
+	padding: 20px;
+}
+
+#header h1 { margin: 0; }
+#header img{
+	max-width: 40%;
+	height: auto;
+}
+
+a { 
+	text-decoration: none;
+}
+
+ul{
+	list-style-type: none;
+}
+
+#navigation
+{
+	float: left;
+	width: 1000px;
+	background: white;
+	border-bottom: 5px solid red;
+}
+
+#navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+#navigation li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: red;
+	text-decoration: none;
+}
+
+#navigation li a:hover { 
+	background: red; 
+	color: white;
+}
+
+#navigation:hover {
+	text-decoration: none;
+	color: black;
+}
+#navigation .current_page_item a{
+	color: black;
+}
+
+#content-container
+{
+	float: left;
+	width: 1000px;
+	background: #fff url(/wp-content/uploads/layout-three-fixed-background.gif) repeat-y 100% 0;
+}
+
+#section-navigation
+{
+	float: left;
+	width: 160px;
+	padding: 20px 0;
+	margin: 0 20px;
+	display: inline;
+}
+
+#section-navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#section-navigation ul li
+{
+	margin: 0 0 1em;
+	padding: 0;
+	list-style-type: none;
+}
+
+#section-navigation .profileName{
+	color:black;
+}
+
+#section-navigation .profileName:hover{
+	text-decoration: underline;
+	color:black;
+}
+
+#section-navigation a{
+	color:#DC143C	
+}
+
+#section-navigation a:hover{
+	text-decoration: underline;
+	color:red;
+}
+
+#section-navigation img{
+	max-width: 90%;
+	height: auto;
+}
+
+#content
+{
+	float: left;
+	width: 500px;
+	padding: 20px 0;
+	margin: 0 0 0 30px;
+}
+
+#content h2 { margin: 0; }
+
+#content .profileName{
+	color:black;
+}
+
+#content .profileName:hover{
+	text-decoration: underline;
+	color:red;
+}
+#content a{
+	color:#DC143C	
+}
+
+#content .tope{
+	border-top:1px #C0C0C0 solid;;
+}
+
+#content .shortcutWrapper {
+	border:1px #C0C0C0 solid;
+	border-top:none;
+}
+
+#content .shortcutWrapper a{
+	color:#DC143C
+}
+
+#content .shortcutWrapper .shortcutName{
+	color:black;
+}
+
+#content .shortcutName:hover{
+	text-decoration: underline;
+	color:red;
+}
+#content img{
+	max-width: 10%;
+	height: auto;
+}
+#aside
+{
+	float: right;
+	width: 200px;
+	padding: 20px 0;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+#aside h3 { margin: 0; }
+
+#sidebar{
+	width: 200px;
+	list-style: none;
+}
+
+#sidebar li{
+	margin-bottom: 40px;
+	border:none;
+}
+
+#s{
+	width: 150px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	border: 1px solid red;
+}
+#x{
+	border:none;
+	background: #585858;
+	color: white;
+	font-size: 15px;
+	margin-left: 90px;
+
+}
+
+#footer
+{
+	clear: left;
+	background: #ccc;
+	text-align: right;
+	padding: 20px;
+	height: 1%;
+}
+

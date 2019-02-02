@@ -1,0 +1,35 @@
+{% extends 'shortcut/base.html' %}
+{% block derecha %}
+		<p>
+			<form action="/submit" method="post">{% csrf_token %}
+			{% for field in sc_form %}
+			{{ field }}
+			{% endfor %}
+			<input type="hidden" value="{{ next_url }}" name="next_url">
+			<input type="submit" value="ShortCut!">
+			</form>
+		</p>
+{% endblock derecha %}
+{% block content %}
+	<div class="tope">
+	{% for shortcut in shortcuts %}
+		<div class="shortcutWrapper">
+			<a href="/user/{{shortcut.user.username}}">
+				{% if shortcut.user.profile.avatar %}
+					<img class="avatar" src="{{MEDIA_URL}}{{ shortcut.user.profile.avatar }}">
+				{% else %}
+					<img src="{{STATIC_URL}}images/default.png">
+				{% endif %}
+			</a>
+			<a class="shortcutName" href="/user/{{ shortcut.user.username }}">
+				{{ shortcut.user.first_name }}
+			</a>
+			<a href="/user/{{ shortcut.user.username }}">
+				<strong>@{{ shortcut.user.username }}</strong>
+			</a>
+			{{ shortcut.creation_date|timesince }}
+			<p> {{ shortcut.content }}</p>
+		</div>
+		{% endfor %}
+		</div>
+{% endblock content %}

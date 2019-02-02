@@ -1,0 +1,13 @@
+{% extends 'shortcut/base.html' %}
+
+{% block title %}Inicio de Sesión{% endblock title %}
+
+{% block login %}
+
+<h2><strong>Datos de Usuario</strong></h2>
+<form action='' method='POST'>{% csrf_token %}
+	{{ form.as_p }}
+	<p><input type='submit' value='Login'></p>
+</form>
+<p>¿No estás registrado? <a href="/user/new" > Regístrate aquí.</a></p>
+{% endblock login %}
